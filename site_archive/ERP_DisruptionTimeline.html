@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)erp.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A3_G24</title>
+    
+    <!--bootstrap styling & js-->
+    <link href="./ERP__files/bootstrap.min.css" rel="stylesheet">
+    <link href="./ERP__files/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="./ERP__files/bootstrap.min.css" rel="stylesheet">
+    <script src="./ERP__files/bootstrap.bundle.min.js"></script>
+    <script src="./ERP__files/chart.js"></script>
+
+    <!---stylesheet & js-->
+    <link rel="stylesheet" href="./ERP__files/style.css">
+    <!--script src='script.js'></script-->
+
+
+<script src="./ERP__files/chart.js"></script><script src="./ERP__files/erp.js"></script></head>    
+    
+
+    
+
+    <body class="erp" data-page="erp" data-new-gr-c-s-check-loaded="14.1289.0" data-gr-ext-installed="">
+        <!-- top of page navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-a3 nav-senior">
+            
+
+            <a class="navbar-brand d-flex align-items-center p-0 m-0" href="index.php">
+            
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAABrCAYAAACrF/z2AAAgAElEQVR4nOydd3gU5fbHvzOzu9lNsiWdFEgIXVpoCS3U0EVA1CvoVbjCRVBBwX71inqlqAiKBa7KtQEWQIoQQg29994JhPS2m2yybeb9/bGEH5DdZGd3toX5PM/6yLztbLadOe95v4cCQOBnLJg5Eb27tUFlldHbpoi4GQlDo1xfhXK9AUajGcWlOpRq9Sgq0SKvsAzZuUW4mpWH3IJSEOJ3b2URERERkXqKxNsG8KVNi3j07tYGABCoCPCyNSKeIEwmRViI6va/Ym32KSjS4sLVbJy7dBMHjl7EyfPXYbGwnjPSRVq1aoU33ngD5eXlHnEUKYoCABQUFMBgMKC0tBT5+fnIysrCzZs3UVpaKsg6M2bMQFJSkmDz3Y9KpcK5c+cwd+5c3mP79OmD8ePHQ6fTCfY3Dw0NxYEDB7Bw4cJ7rkulUvznP/9BWFgYKisrBVnLESQSCYqLi6HT6VBeXo7s7GzcuHEDN27cQFlZmUdsiIiIwDvvvAOFQgGDweCRNe9GIpFAp9OhqKgIJSUluH79Oi5fvoybN2+67bM2YMAAjBs3DsXFxW6Zn2EYBAcH47PPPsOJEyd4jQ0MDMRbb72FmJgY6PV6QeyhaRoKhQKzZs3ClStX7mkbPnw4nnnmGeTm5gqylqcIDAxEXl4e5syZg4qKCqfmoOBnEax/TX0Cjw3r4W0zRHwcrU6P/UcvIH37Eew9fA5mH3e2Bg8ejPT0dG+bAQCorKzExYsXcf78eezZswcZGRm4dOmSU3MdOHAAycnJAlt4L9evX0diYiLvH8u33noLs2bNEtyezMxM9O3b955rCoUCubm5UKvVgq/nDBUVFbh06RJOnjyJ7du3Y+PGjcjPz3fLWi1btsS5c+fcMrcrXL58GceOHcPu3buxYcMGXL58WbC53333XXzwwQeCzWePcePG4ccff+Q1JiYmBqdOnUJoaKjg9vTq1Qu7du2659rs2bPx5ptvCr6Wp2jbti1Onz7t1FhaYFvcikYdhMF9OnrbDBE/QK0KwqA+HbHg/YlI/+V9THlmKEI1Sm+b5RcEBgYiKSkJTz75JBYuXIiLFy/i8OHDmDp1KjQajbfNq4GzEaiqqio3WOMfBAcHo0OHDnj22Wfxww8/IDs7GxkZGRg1apTga1ksFnAcJ/i8rtK0aVM8/vjj+Pzzz3Hp0iXs378f48ePh0Ti+saOxWIRwMK6KS8v5z3GYDB4JZLoj5jNZhiNzqci+ZWD9ciAFAQHKbxthoifERaixMSnBmHzrx/i5QmPQB4g87ZJfkenTp3w+eefIzs7G6+//rq3zRERGIlEgoEDB2LVqlU4f/58jQicq1RvSfsyKSkpWLJkCXJycvDSSy+Bpn3/59GZv6s/vBa+AiHEpW1k338H3cXIQV3ttlGU+Ki3D1gfrkJTFJ59vD+2/Poh+vdoL8CMDx5BQUGYO3cuTp48icTERG+bAwCQy+VOjZNKpQJbUj9o0aIFtm3bhi+//FKQ+RiG8asf9YiICHzxxRe4cOECUlJSnJqDYRiBrbJNQAD/PGSJRCK+9x3E1Rw9BsBMQSxxM2mpSXhieE+bbRQAhvYBR0B8CP6gaetrS9OAhCGQMoBEYnWWqLvfADyQSSUY2LsDGjeMwra9p3zi9GFlZSVCQkKg0WgQEhLibXPqJCoqCs8//zwyMzNx48YNu/1YlkVMTAwiIiIE/9FhWRYnTpzAwoULceTIEd7jdTodIiIiEBkZiaCgIJft0ev1OHz4MBYvXoxTp07d02axWEDTNMLCwhAZGekXDkdycjJSUlKwdOlSl+bR6/WgaRoREREIDw8XyDr3ExoaigkTJoBhGGzfvp3X2PLycoSFhUGtVkOlUtU9gCc3btzA6tWr8cMPP0Cn0/Eaq9frIZVK73wuheDixYtYsWIF/vjjjxqHOIxGI+Lj46HRaKBQ+NcOFMuy+Prrr1FSUuLUeAp+kuT+1UfPo3vnVjWuV/8QXy9goDcAEs/cOIh4AAKApgApQ0BRAMMAUhqQSqyOlkxCECC5fZ0h4AhgYSlwBHDUZ7p0LQfPv/k1Ssr45zK4A4qi0KlTJwwYMACDBw9GamqqT/8YV1ZWIjk5GWfOnKm1X2RkJNLS0jBgwACkpaUhLi7OqfVycnKwbds2bNq0CZs3b0ZeXp5T89xNQEAAunTpgqFDh2Lo0KFo397x6GZWVha2bNmCjIwMbNq0CVqtts4xcXFxGDRoEPr374/+/fsjMjLSFfPdzvLlyzF27FhB5mratCkGDx6MwYMHo1evXlAq/SMvcu3atRgxYgTvcQzDIDk5GUOHDsXAgQOdPvBhNBqxd+9ebN68GRs2bMDJkycFuTFMTEzEoEGDMGjQIPTp08fhQxhVVVXIzMzE1q1bsXHjxjo//4A1tzM1NRWDBw/GwIED8dBDD7lqvkdISUnBwYMHnRrrFw7WQ80bYenCGTbbAqQEJRU0Tly3ela07/4WiTiN9UUlpNrpImBoqzMtkwByGUGgjCBYThCsIJBLrEMsLMA6kFtbWKzFsy8vQG6Bc3cp7iY9PR2DBw92uP/s2bPx9ttvIy4uroZzZrFYoFar79xdN2vWDB07dsSgQYMQFRXllH3Hjh1Dx478Dp8MHjwYa9eudXirguM4jB49GqtXr3bGRF5ER0dj8+bNaN26td0+lZWVGDZsGDIzM11eb9KkSVi0aJHD/a9evYqnn34aBoOh1oiAxWKBTCZDYmIiOnfujMceewzR0dFO2Th9+nTMnz/fqbG1wfe03dWrV/H3v/8dVVVVtT73aucjKioKsbGxaNWqFbp27YpOnTo5beumTZswaNAgp8cD1sMFv/76K4YNG+bwmOXLl+Ppp5/2yEGBmTNn4r333qu1z6JFizB58mSX12revDm2b9+OmJgYh8f8+9//xi+//OL0+xiwOqsBAQFYtmwZ4uPj6+zfvXt37Nu3z6m1/EIHa9Rg+7lXhFAo0FpTyQIkBBKJBPKAAJ/Y9hERBpbjwN3zsDpaFhYwWwBdFQ2Os0ax5FJAqSAIVXIICSKQywhMFgosZ38nMSJMjS8+/CfGvTwfeh8Ur7169Sqv/tXH7bOzs22229KjoSgKDz/8MObNm4dmzZrxWq9Dhw548803MWfOHIfHHDx4EFqt1uEto9LSUuzfv5+XXc6Sm5uLq1ev1upglZSUOH1Xez/Hjh3j1b+srIzXF/7u3bvx008/YerUqXjttdcwZ84c3gncb7/9NpYvXy5IxPBu+Go4abVa7N271+n1YmJi8Nxzz+Hll1/mLVNQfQjg0UcfdXr9iooKnDlzhpeDderUKY+dwjxw4ECdfU6ePCnIWhcvXkRxcTEvB+v06dO4du0arl275vL6W7duxT/+8Q+X56kNn3ewwkJUGJ5mO6wqZYAKA4WScgpSxip2RlEUtDodOI7z6a0VkbohhICiKMjlckgkEigUCsjlcjA0DYvFAgtrgdlsgdFohNlsAkcoGMxAhZFGfhmNYAWHKA1BlJqDQkpgNFN2w7VNE6Lx0RvP4OWZ33r0OboDZ5K+CSFYt24d1q1bh0WLFmHSpEm8xr/yyiv46quvHD42zjAMr5wsqVQKmcxzpz/rSh5mGEawU2Z8c9NcSVD+5JNPsHv3bmzfvp1XgnR4eDgmTJiA//znP06vLQSuJmfn5OTgww8/xJw5czB37ly88sorvMaPGjUKH3zwAf797387bQNfGQhnEtmdxZG1hJCxcBYhvwM2b94sOljDB3RBQIDtDxVDA8XlFIwWQC4liIqMxNr16Vj8/RKoVSq/OGYrYp9qBys4OBhyuQyBiiAEBQUhNESDiLBwNGgQhcjICESGhyMsqgEsFgsqq6pQWVkJQgj0BgqXcmjkldFIiGARoSIws4DFTjSrd7c2eGpUHyz9M9PTT9WneP755xEUFISnn37a4TGRkZF44okn8P3337vRMhEh2LdvH6ZMmcL7tXrssce87mAJhdlsxvTp07F161asXr2al9Pw7rvvYv/+/diwYYMbLRRxN5mZmSgrK3Ortp/PO1iPDLB9TJahgSoTUKijIaEBqVSG8vIKbMvcAQDQ8jxZIeK7lNZS0kMikSA2OhpNEhujVcuWaNWyBeIbNoTFYkGZVguWZVFRReH0DQniI1gkRHKgKMDM2nayXhg3DJn7TuFWnntKXPgLr7zyCoYMGYKwsDCHx4wcOVJ0sPyEJUuWYNy4cUhNTXV4TPv27dG1a1ePbdV6gvXr12PYsGHIyMjgNe7jjz/Gxo0bfVJAVcQx8vLycPDgQQwcOLDWfq4o3vt0iKd31zZo3Mh24q2EAUoqaOgNAEMThGg0OH7yFC7dVwdJpH5jsViQdfMmtu3Yia8W/xcz3nwbcz79DEePH0doiAYajQYyCYGEIbiaz+DCLQY0BUjsvPMVchn++ZRriaz1gaKiIixZsoTXmJSUFLccSRdxD99+y387vEuXLm6wxLts2rSJt3hu69at8a9//ctNFol4ivXr19fZx5XyVj7tYI0e1t3mdYoCWBYoKqduH9+nwREOu1xIfhSpHxiNRuzZvx8fzvkY78+ag1s5OYiKjISUoSCXcrhVQuFyHgMJY30f2WL4gGQkxPn20XlPwHcLJCIiAu3atXOTNSJCc+DAAZjNZl5jOnTo4CZrvMsnn3zC+0Toa6+9hgYNGrjHIBGPsGPHjjr78P2M3I3POlitmsYhNdn2KR4pA2irKGj1FCQMoFKqcOnyFezdX/cJCJEHh6PHT+DVt/6FbTt2IjIyEhKGhlwKZBdRyCulEWBng5yiKAxLq3936nw5ceJEDdHAumjSpImbrBERmosXL+L48eO8xgglTOmLzJ49m1d/pVKJCRMmuMkaEU9w4sSJGqLAQuKzDtaI2sriACjUWo/e05S1Uv3OPXtEaQaRGpjNZsxf+CXSN29GZGQkaJqApoGsQhoGs31h2rSeYimd0tJSXOG55S7e0fsXOTk5vPr7izCoM2zatIm39Mazzz7rJmtEPMW6detqbXelcLdPOlgRYWoM6WdbEE7CABVGa/6VhLGqw97KyUHmzt0etlLEn/h68bc4dfYMwkLDIGUI9EarfpqEtu2UJzSMQrPGjuuz1FdKS0t59eejaSPifYqKinj194cyTq7w66+/8urftGlTpxTeRXyHXbt21druyilDn3SwhvTtBFVwoM02KUNQpKNhMFFgaAK1Som9Bw7wrsck8mDBcRyW/vo7WI6DVCIBQxMU6SiYLJRd9f+uHVt41kgfhK9GU3BwsJssEXEHBQUFvPpbJVOcK67tDziS9Hw/ooPl32zbtg2FhYV2212JyvukgzV8gG1hUas0A4VCHQWGIZBIpNDqdNi5e4+HLRTxR06dPoPTZ84gWBkMCQ1Umijojdb3ki3iov2nMK274LuFxLKsmywRcQd8c+yKi4thMBjcZI33uXjxIs6dO8drTJ8+fdxjjIhHMJlMSE9Pt9vuyhahz+lg9e/RHk0TbNcZkjIEhVoaegMNmYRAo1Fj/8FDuHLVddl8kQeD4ydPIblzZ5TRWhjNFCpNQEgQYOuciHiSkL9ytlg9wb/gq/HzIOwUbN++Ha1atXK4f+PGjZGamlrnVpOI7/LOO+9g+fLl0Ov191yXyWQ4f/680/P6nIP1yCDbwqIUBbAchcJya9CNpilwHMGu3aI0g4jj5OXnw2g0gqFpANbyOZydsxFhoaKmk6O1AqsRD5r4F5GR/G4iymoR/a0v8K39CQDt2rUTHSw/5ubNm7h586bg8/qUg9WiSSx6pdiWZpBJgJIKqzSDVEKgUipx5epVHDx82MNWivgzxcUl0FfqwUgYUCYzLBZrwXAKqFGnUGrviOEDRGCg7VxIe9SWyyDie/B1oN3xI+RrOFPMuGfPnvjqq6/cYI2IK6SkpOCdd96BXq+HxWKBRqPByZMn8fbbb3tkfZ9ysEYMtB29qqZQS8PCUQigOQTI5di9bz9MLoiAiTx4sBwHjiOwXSjnXh70MhhKpRKNGzfmNebGjRtuskbEHfA99bn3ARBzvnz5Mu8xzZs3d4MlIq4yYsQIPPzww/dcS0hIwDvvvOOR73efSXIPUQdjSN/ONtukDFBhsEawpAxBYKACeXn52L2n/n/YRYRFKpWAYZg7W1kUBbu+FsMwD3ROUZMmTXgfy8/OznaTNSJC065dO7Rt29bh/izL4sSJE260yDcoKyuDVqvlNSY2NpZX3U4Rz2CrtJPFYvHYzbPPOFgPp3WBRh1ks425S5qBpqzbgwcPH0FR8YNdkFeEP6GaEAQqFGBZFoRQkEoAmiI1tgcBwGA0PdA5RXUVQb0frVaLw+KWvd/Qr18/Xv23b9+Oixcvuska36G0tJT3jUJUVBRiY2PdZJGIMyiVSiQn21Yk8BQ+42AN62+7NAlDAwYThaLb0gwymRRaXTm2ZdZdQ0hE5H5CQjQICAi4cwcjlRC7m4WFxfzuYusbY8aM4dX/zJkzyM/Pd5M1IkIzbtw4Xv1//vln9xjigxQ7cfMeHW379LuIcPC54fWF4vM+4WD17tYGLZrY9v6lEoLSCgrlBmvdQWWwEoeOHMWVa8JKM9A0/UBvBz0oJMTHw2Q2gRBAwhAESGD3FGFOfolnjfMhnnnmGSQlJfEas3btWjdZIyI0L774Itq3d7wc1IEDB/DTTz+50SLfwpnTkqLIrvsxmUwO9+X7/eUOfCLJffTQ7jav35Fm0NGoTpUpr6hAg6hIvP7Ky5DL5S5v4RBCoFGrcfnqVSz67nuX5nIXaX37YPjQoT63JUrTNKqqqqCv1KO8ogJZN27i2ImTPq2VE9+oIUxGE1gOkMsIAmUELGfbsc4r5Fcmpr7Qrl07/Pe//+U1xmQy4bfffnOTRSJCkpqais8//9zh/hzH4aWXXnKjRb6H0WjkPUasw+l+nn/+eXTp0qXWyBTHcTAYDBg1apQHLbON1x2s5omxSE2uRZqhnEKp3iosCljf+LExMWjRvOnt02CuQQhBTHQ0Dvho7ghFURj5yHC0atEcZTwTL90NAQFDMaBpGjKZFIQABQWF2LxtG35bsRIWH1P1bt6sKRrGxaLKYABHgEAZIJMCrJ18x3OX6v+R9Pvp2bMn1q9fj4CAAF7jli1bhuvXr7vHKBHBSEtLw/r160HTjm9eTJ48GYcOHXKjVb6HM3IjD/qpY08waNAgDBo0yNtmOIzXHazaoleEALmlNIxmgJLhtlARjUqDCZUGx0OF98PQ/39wLCgwECdOnkLGli1Oz+dOUnt0R2JCArJu3AQhBCxXU6/J29AAKJqApmgEKhSYOH4cEhISMOuTT0F86EvnoZYtoVFrcCsnBxyhEazgIKEJLGzNCJbZwuL85VtesNJ1nCntEBISgo8++giTJ0/mPbaiogIzZ87kPU7EOcw8pWlomoZKpcKHH36IF198kdfYadOm8Y5mPqiIpwhF7serDlZwkAKD+3a02cZQgN5grT2oVBAwAmWL0RTAsoCFAwACpUqJjVu2QKcrF2YBgenTKxVmsxkcx4GAgkxifQ6+5GRZWMBkoUFTBPpKPa5eu4Z+vVNx4eJFrPhztbfNu0NSu7aoqqoCgVXuQxVIwBHb24Mnz15DSZlvvifqQiKxfqwjIyOhVCqhUqkQEhKC8PBwhISEICQkBBEREVCpVFCr1VCr1UhOTna6avwLL7yArKwsIZ+CSC0EBgaie/fukEqlaNiwIZRKJcLDw6FUKhESEgKVSgWlUgmNRoPg4GCo1WqEh4fzEo3V6XR48skna63RJnIvfMsOidR/vOpgDenbCapg2x96lgA0DbSMs4AWKPecoQEzC5zLloBlgcAAGbRa3y0W/VCrlmjXpjXKtFpYOApBAUCr238PAXZHBcPCUagyAbeKGegNFCQMgU5Xjo5J7X3GwWqSmIjmzZqhQq8HywJKBUFwAIHFzi7myXPXPWqfkLz88suYMGECIiMjERQUBIZxnyL9vHnzHqjkZ1+gZcuW2LPHfd9Zy5cvx5QpUx6IsjhC8iBLuojYxqsOlr3tQcC6PSihrU6WUMilBNnFDPRGClKGg0ajwc7de3D12nXhFhGQvr16QSFXoKxMC5alEa5ioVRY6+f5EgEUQZiSIDgAOJnFgOUoGIxGBAcHQ6NW+0TuWHLnTlCrVMjNy4OFoxESzEEmJTCYbP8td+w/7WELhcNTybbz5s3Dq6++6pG1RNzPmjVr8P777+PYsWPeNsUvub9QsIiI1xys3l3tSzNUQ2A/AZkvNAUYzBRyyyhQIJAwDAjhkLnTNwt0NoiKRJeOHVCm1YIjFOQygnAVB7OFEuxvIiRVRgoyCYFUAliMVhV0k8mEyqoqb5sGmUyGLh07QF+pByEUAqQEIcH2Tw/ezCnCmYtiyRd7EEIwfvx4/Pjjj942RUQAKioqkJKSgrNnz3rbFL8mLy/P2ybUeywWCywWi0OSSjKZzOvSS15zsEYO7urR9aQSoKicQnmVdQtLo1bj9NlzOHT0qEftcJTU7t0RERGB3Lw8mFkakWoOwQGAwUdLL0oY64nPKqM16iiTyZCbl89Lt8RddExKQuPGjVFaWgozC4SpCJQK+9uDOw+chsVe4wPOihUrMH369Aei6O+DQnBwMFq1aiU6WC4ik8m8bUK9Z/r06Vi8eDHi4uLs9uE4DtnZ2Vi0aBGee+45D1pXE684WC2axKJPN8drYAkBIdZi0RwHyCQU5PIAZO7a7VEbHCUgIADdu6ZAX1kJAgoSmiBCzflU3tXdUBRAgSBfa90eZGgOEgmDM+fOeds0AEDP7t1A09SdgwLhSgKGJjBbbN/dbNohbpHcTX5+PpYvX45FixbhwoUL3jZHxA3MnDkTK1eu9LYZfk1JyYMrTOwpbt26BZPJhKtXr9bZd9++fQ+mgzVqcDePrmctFk2hpMKqBh8YGISsm9nYs2+/R+1wlOTOndCkSSIKC4tgtgDhKgJ1IIHZB4MqBIBCZnVeC7QUpBKCoKAg5OXl49DhI942D4mNE9AxqT20tw8KBMsJQoM5u87VqXPX/TrB3VVKS0uRlZWFS5cu4fTp09i8eTMOHDggavz4EHl5eZg3bx7MZnONqAkhBDqdDo8//jjS0tIcnrNNmzaYPHkyvvnmG6HN9Uv4nLisxpcFlusLUqnU4b47duwAIcSr24Qed7DCQlQY1r+zoHNyt09v0Hb+kAxNUKilYbJQkEs5qFUqbNy02WeTElO7dwPhCAghIKAQoao94uItCACFlKDSSOFyLgOAAgUWoSEhWJ++EcU+cEfXt3cvqFVK5Oblw8LSCFdyUMgIquwkt2fUg+jV559/jlmzZiE6OtqhLxeKokBRFAoKClBUVASDweABK0WcJTs7G59++mmtfQ4ePMg7Wf3VV1/Fd999x1tnqz7ijKaVM/ULRdzHtWvXkJ2djYYNG3rNBo87WBQFvPvJUlRW8S9FYIsqgxHyABnmvP0sQjXKGu0MbdXSKi6nIaEJZFIZtFqtz0ozNG/WFEnt26GsrAwWloJKUXvExVtQABQBBFVGCmduMKg0AQESFmFhYbh67RpWrV3nbRMRFhqKbsnJ0OnKrQcFpNaDAhY7ye3a8kpk7PDNnDw+XL16FQUFBSgoKPC2KSJuwBGV/ePHj+PXX3/Fk08+6fC8iYmJmDRpEr788ktXzKsX8K0raDabnVJ/F3EfLMsiMzMTf//7371mg8cdrKISHTL3nRJ0zm6dWtp0rgDr9mB+GQW9EQiQEmg0GuzaswdXfbSsR99evRAUGAidrhwWjka4ikOA1H7ExdNQlPVvSlPWqODlPAaVRiBAQhAUGASGZrDouyWorKz0tqno2ysVDRpEIS8vH2aWRrSGg1IBGO3coG/eeQxFJf4f5lcoFN42QcQHmD9/Pi8HCwBmzJiBxYsXP9BRLIqiEB0dzWtMbm6uePDDBzlz5kyNawxjLe/mibQHr5fKEYJnHutn8zpNWYVFC8tpUBRA0wwsFgsyd/lm9CoqMhIpXTqjTKsDS6z5QtEh1jeBxH1akbVCwepUAdXFtwm0lTTyy2jka2kQAgQwHBSKQISGhuLzr7/GiVPCOtDOoJDL0atnT1RWVt05KBCpqf0DtSbjgIesExFxPwcPHsRvv/2Gv/3tbw6PSUhIwJQpU3gVg65vREREoHHjxrzG5Ofn+2zKyYPMTz/9hNLSUrAsC5ZlERgYiOzsbI/llPq9g9W2VQK6dmxhs00qAYp0FHSVFKQMoFapcOHSJRz00cLOvXp2R2REOPLyC8BxNFQKDhwHlOkFVFt1ApazOqp6A4WKKgq6KgomFpAxAEVzCAkJhUwqxWdfLETGlq1etbWafn16o3HjBBQUFMBssUozaIIITHbK9O07ch6nL4jlXkTqF19++SUvBwsAXnvtNfzvf/97YJO2GzZsyLvY+YMkceHOyhBCk5ub69Vamn7vYI0cZF9PixCCQh0DjqNAMQQymQw79+z1oHWOExAQgB5du6LKYABFWUU7dVUUTmRJ4M0KDIRYHSxCAI6jAIpAwli3WwMVgQgPDcWV69fxzX+/w8nTvqF+LpPJMLB/PxgNBhBijbxFqTlrDUc7f8s/N+7zrJEiPk1dZU8kEgloIctMuIndu3dj/fr1GDZsmMNjYmNj8dprr+Hdd991o2W+S4cOHXiPOXTokBss8TyORHby8/M9YEn9wPe/IWqhQWQIBvW2/WGQMkB5FY3SCquwaFBgIG7l5GC3jzpYKV06Iz6+EcrLK+5cs3DWQsos570HR6xbrRKGglxGIUguQXhoCGKjY2A0GvHjsuV47a1/+YxzBQCDBvRHs6ZNoNXpYLIAIUHWUj72olcXr97C5p3HPWukCK/j09Uhfk9R11o6nQ5VPlClwBHmzZvHe8zUqVM9VnLJ12jTpg3vMefPn3eDJVY8WeOwulB8bfhCfq2/4NcRrKH9OiMoUG6zjWEIisppGC0UAiQcVK+MioUAACAASURBVGoVNmzaDF15uYetdIzRI0agQWQUGNq3wq8SiTUh0GyxwGwyQ6/X48y5czh+8hS2Ze5ESan3pRjuRq1WY/iQISiv0N+JXkWHcHcKfdv6SV+x3jed7voMX22agIAA3ts2rhAaGlpre1lZmd8kgm/fvh3p6ekYMmSIw2NUKhWmTZuGt956y42W+Sa9evXi1f/mzZvYtcvxkmuOODF348kbi9jY2svXAY5FufyV9u3bIzY29h6pGoZhwLIs9u7dy1vCxm8dLImEwfAByTbbGBowGO+SZpDJUFpaip27fVO5PTIyEtm3buH6jSyPfphqg6IoEEJQUaGHhWWh1+uRn5+PK9euI9eHa2498ehIxMXFIicnFyYLhTDl/0evbP2kZ2UXiNuDXkCn06GkpAQajcah/oGBgYiKinJIwdlV5HI5mjVrVmsff0tonj9/Pi8HCwCmTJmCL774Arm5uW6yyvdo1qwZ7y3CAwcO8CoJxjfy6Ywml7M4ohlVX7cI1Wo1tm/fjpCQkBptVVVVaNq0KXJycnjN6bcOVv+e7ZEQF2mzTSohKNAyqDBYo1catRq79uzF9SzfLOBbWFiITxY8uKd2hKJN64cwZOBAFBeXgBAKDA3EhXOgasm9+mVVplh30AsYDAYUFhYiMTHR4TGe+qFp3rx5nWv525H8zZs3Y9euXUhNTXV4THUU680333SjZb7FyJEjeY9Zu3Ytr/583ztNmzbl1d8VOnbsWGs7IaTeOtxPPvmkTecKAMrLy53aGvXbHKzRQ7vbvE5TgIWlUKilQQGgaRosy2KHj0avAM/usddbKODZp8ZCIpHAaDTAaAGiNAQhtZwcvH4zH6vSxeiVt7hxg98NT9u2nqlf2q+fbdmXu/HHu3hncrGmTZuGJk2auMEa3+Txxx/n1b+kpATr1vETVb58+TKv/gkJCR4p9xIaGopu3WovY5eXl1dvFetre+2Lioqg1Wp5z+mXDlbbVgno0t52CF8qISiroKCtBGQSApVKhfMXL+HwUf8vgSJin38883e0a9MahYWFsHA0AgOAhuEc2FrSBb5dtqle5xP4OteuXePVv3fv3m6y5F4c+ZE9csT7dTb5smbNGl65QoB1u/Sll15yk0W+xfDhw9GlSxdeY/744w+UlZXxGsN3m6lNmzZOnWzky+jRo+uswXjixIl6meSelJSE/v372203mUxOBUL80sF6uL/tDwF1+78FOhosRwEgCJDJsHf/fvGHtB7Tq0d3PPrII8gvKAQHgOOAhAgWgQEE9nb/Dp24hA3bfFMP7UFh586dvPr37t27ztwoV+nduze6d7cdHb+bEydOuNUOd+FMFGvixIkPRBTr1Vdf5T3m22+/5T3m1KlTvOtEDh8+nPc6fJkwYUKdfdx5WtKb1FXxwNmond85WKEaJYb07WSzTSIBdFUUSiqsOlKBgYHIycvD3v2iQnd9pXFCAp6fOAGVlZUwmYwwmmk00HBoEELslsQBgP/+stFzRorY5OjRo7zu/uVyuUM/Aq4wa9asOvucPn3aZgkOf2DNmjU4epRfvc3AwMB6H8WaNm0a79ODy5cvdzqSyfc1GDduHIKCgpxayxEmT56M5GTbh8buJjMz0202eJO6otZ8Tw9W43cO1iMDk6EMtl1rjaGtyu1GMwWKIlAplTh46DCKS3xLSkBEGMLDwvD2azOgkMtva15Z1e8TG3B3xFFt8Wf6Phw+yS8PQkR4cnNzsXnzZl5jXn311TrzRJxl1qxZDkWvdvtwPqcjzJ8/n/eYiRMn8jqQ4E8kJSVhwYIFvMfNmTPH6TVXrVrFq39CQgI++ugjp9erjaSkJIcKfJeUlPDeYvYHRo4cWed7u6ioyKm5/crBoiiqdmkGE1CsoyG5rdpeXlGB7Tvr3xtCBNBoNHj3zdcRFRmB4pJisISGhKHQPJaDTGLVvLJFflEZ5n+3xrPGithl6dKlvPrTNI3ffvvNIb0ePrz00ksOaz6tXLlS0LU9zS+//MJ7iyowMLBeniZs3Lgx1qzh/33w4Ycf4uTJk06vu3HjRt7ldaZNm4ZXXnnF6TVt0bx5c2zcuNGhqgR//fUXSuphsMKRgujOat75lYOVltoeiY1sqwvLJATF5RQqjICEJtCo1Th6/Diu8kykFfF9GsXFYfb77yEhPh4FhYVgORocR6FFjAWaQOvWoL0zN598swrlFf6hwP0gsGbNGhw4wG8Lv2HDhjh8+DC6drVfJosPX331Fb744guH+h4+fBhbtmwRZF1v4kzEZuLEiUhKSnKDNd4hJSUFe/fuRaNGjXiN279/P/7973+7tDbHcQ5Fje7ns88+cylydjcDBw7Evn37EBUV5VD/X375RZB1fYm4uDiH8tseiAjWyEG2twZoCjCzFAp1NCgKYBgaAMH2HWL0qr6R1K4dZn3wHqIbNEBhkdW5YjkKLWItiNQQGGrR+1uz6QC27vbP5GQ++Jvsx8yZM3mPadCgAfbt24eff/4ZrVu35j2epmk8/fTTyMrKwpQpUxwe99VXX/Feqy688XotW7YM586d4z1uxowZbrDGswQHB+Pjjz/G/v37eZcDKi4uxtixYwWxY/HixTh8mP9BmzfeeAPnz5/HmDFjnKqH2apVK6xatQoZGRl1ViyoZtOmTby3892B0J+VJ554os6Tk4DzwsJ+IzT6UPNG6N65pc02qYSguJxGmZ6ClAFUKjXOnr+AwzwTCUV8m8dHjcTfx46B0WhEUVERLMTqXLWMtSA2lIPBTMHex+/y9VzMnLfMo/Z6C39TGd+4cSO+/PJLvPjii7zHPv3003j66adx5swZbNiwAUeOHEF2djays7NhNptRUlICQggiIyOhVqvRqlUr9OzZE4899hhiYmJ4rbVlyxb88MMPvG2sC74nnPmohtvDYrHgyy+/5O0wPv300/jmm2+wd693yks5+9zlcjlSU1MxcuRIPPXUU1Cr1U6tPWLECN7yIvbgOA5Tp0516m/ZokULLFu2DAsXLsSmTZuwe/duXLx4ETk5OdBqtTCZTCgqKkJoaCjUajUSExPRuXNnjBw5EikpKbzXc+YmyB0I8d6/myeeeMKhfs5ujfqNg2VPWBQACKFQoKXBEQo0RRCokGPPvv0etE7EncQ3bIjJ/5yADu3bo6CwAEajEWbOKiT7UJwF0SG3nSs73pXBaMK/5v7sUZuFQK1Wo1u3brzUtwHgb3/7Gy5duoR9+/ah3Edrb97PjBkz0K1bN3TqZPuEcF20bt36nkiWyWQCy7KoqLAWT1er1ZBKpU4LNlZWVjrlANYGRVF46KGHeJ+MbNGiBaZPn46VK1ciKyvL6fW/++47TJs2Dc2bN+c1bteuXcjMzMQff/yBP//802nR1cTERDzyyCO8xsTHx+OLL76A2WyGVCq1289isSAoKAgRERGIjY1Fy5YtoVKpnLITsL6f+vXrhz179jg9hy327duHGTNmOCWfAVirG4wZMwZjxowBYK1baDabYTabUVFRgeDgYAQGBoJhnK9x+/7772PfPmEFmVUqFdLS0njnUk6aNAmdO3d26bUErKVvoqOj0blzZ4f6O/s9ahWL8nFCNUr89eO/oZDLarRJGaDCSOFUFgMQIDhIgYrKSrzxr3dRUlrqBWtFhEKlUuHxR0fi4cGDwUgYFBYWgRACg5lGYABBixgWYUoOBpP9yBUAvDnrB2Ts8A+h2fbt22PIkCEYMGAAUlNTa/0RqQuDwYCdO3ciIyMDGRkZPi8tEBoait27d6NVq1beNqUGY8aMwa+//uryPOHh4Rg4cCAGDx6MtLQ0REdHuzTfhQsXkJ6ejvT0dOzcuZP3cfIXXnjBqVygagghd5ytVatW1epsRUVFYeDAgejXrx/69evHO/fJW1y+fBmPPPKIU1uqjrJgwQJMmzbNbfM7y+rVqzFq1CiX56FpGikpKRg4cCD69++PlJQUyGQ1f899lYcffhjr16/nPc4vHKxnHuuHVyaOsNkmlwJX82lcK6QhlxDExsRg5Zo1+O5/P3rYShGhiIwIx6C0NPTv1xfRkZEoKCqC0WgAS2iYLRQi1ByaNuAQKCMw1HG4Y/63a/DTim2eMdwF+vTpg99//x0RERFuW6O4uBiPPvoob4FPT6LRaLBt2zaPKFc7ynPPPYclS5a4NIdGo8HKlSsdKsPjCnPmzHH4NCQABAUF4fTp00hISBBk/R9++AHjx4+/55pGo8Fff/2FHj16CLKGJ/n+++8xadIksKz765W+++67+OCDD9y+jqPs3LkTaWlpTp+gq2bq1KmYP3++U/livkK/fv2wfft23uP84hmPHGT7tBBDA1UmoLichpSGVZqhvBw7d/m3Ts2DiFQqRcekJLz84hTMnzsHTz35N8ikUmTfugWD0QSjmQZDUWgew6JNQwvk0rqdqx//2OoXzhVgTTx1p3MFWLcTHA2Je4uysjJ07NgR33zzjbdNgdFoxIgRI1x2rgBrUr67nSsAvMUy9Xo9Fi1aJNj63bt3rxGZiIqK8jvn6tChQ+jatSsmTJjgEecKsEo/DB061Ce29f/3v/+hd+/eLjtXANC1a1e/dq6Aeqzk3qdbWzRuZPsYqZQhKKmgUWEAGJpAo9Hg6ImTuHj5ioetFHEGjVqD5M6dMHH8s5g3+yP8++030b9PH3CE4FbOLegrq2CwUGA5IDqUQ/sEMxqGs7BwFIx2CjhX8/u63VjwHb8q997EYqnjCQlEdU6SrzNlyhT06NHDayVpNm/ejMaNG2PtWmHeQxaLxWdPd37zzTfIzc0VZC6WZWu8l1mW9ZtSZZs2bUK/fv2QnJzMWz5ECNLT09GwYUMsXLjQK++XkpISjB49Gv/4xz8Em9NT323uxFkld59Pch81xLY0A0UBZo5CkY66Lc3AgHActvvw9seDjEqpQlhYKOJiYpAQ3wiNGjVEQqN4hIWFQCaVQa/X3znxZeEAlqXBMASRaoKYEA4hQRw4UDCYqitO2uf75Zvx5Q9/eeaJCYSn7vD8Ke9h7969SEpKwtChQzF9+vRai7EKRWZmJmbOnIkdO3YIOi/DME4n2LsbnU6HBQsWYO7cuS7PRVEUaJq+x6GiadpnIxhlZWU4ePAg0tPT8eeff7p0aEAotFotpk6dijlz5uCNN97AU089hbCwMLeumZOTgy+//BKfffYZjEajoHP76mvvKFVVVfXTwWrVrCF6pdjWuJEyVmkGbSUFCQOolEpcunwFBw4e8rCVjhERHg61SlUvvPn74TgOikAFpFIpFHIF1EolgpVKqNUqhGg0CNFoEBoagrCQEMjlckglElg4DhUVFSgr04IQApaDtTAzBShkQKiGRYSSQB1IQFGA0eLYj9Pcr1fi1zX+52TrdDqYzWbk5+e75c6VYRhER0f7pRLzhg0bsGHDBjRu3BiPPPIIBg8ejC5dugjyo2M0GnHs2DGkp6fj999/d1sxW6PRiJs3byI4ONhtUcSYmBinT/R9++23GDt2LBITE3nVh7ybiIgI5OTk1IhWmUwm3LhxA0ql0uMRVIqiQAiBVqtFWVkZioqKkJWVhbNnz+Ls2bM4ffq008/X3eTk5GDatGl46623MGjQIAwbNgw9e/ZEixYtBJn/ypUr2Lt3L1asWIH09HRBtgNtUS3SefPmTbfM707UajWuXbvm9PvWp5Pc33jhMTz5iO0j6jIJcCGHRl4pjQApEBMdja//+y3WbUj3sJV1wzAMPnz3HbRs2Rw6nff314WG4zgoFArIAwLAcRwoirrnYbFYYDSaYDIbwbIEBADhrJEqq7QGECAlUCoINEEEIUEEgQEEhAAmB/1Ro9GM6R98j72H3XfSx53IZDIEBQW5dSuFpmno9XrBtWS8gUqlQqtWrdCmTRu0aNECsbGxiIqKQnBwMEJCQkDT9B1HVSKRoLy8HCUlJSgvL0dOTg4uXbqE48eP49y5c8jJyXG7vTRNQ6lU3vnBd9ca1cfznSEoKAgymczp9yBFUWBZtkYOkSeee202cRyH8vJyn92i5QNN02jWrBlatGiB1q1bo0mTJoiOjkZwcDBCQ0MRGBh4J2eMpmmwLIuSkhLodDrk5ubixo0bOHfuHI4fP45Lly555IY/MDAQAbd/G/wNmqZhNBpRWVnp1HifdbDCQlT487u3bRZ2ljJApZHCqRsMWA5QBgdCr9fj1bf+hTKt1gvW1k63lGS89eoMaHW6evEhv5/qL1aOYwFilUwgxOpIgViLLnMEYDnrdi5NE0gZa6QqSM4hWA6oFBwUMoCmAZYFLDw+iyfPXcf0979DcWn9c15F+CORSKwpA7c/a9VOvqeSlUVEvMH97/tq6sMNlb/is1uED6d1selcAdbTg0XlFAxmQC4l0KhV2LJtu086VwDQq0cPEEJgMhnBcRRMFqujUZ8gBOBAgaGs+XE0ZXWWaNrqEEslBAFSArnUGp1SyKyvnUxijVSxhIKFBQjP38Avvl+H//3u/7XhRITDYrHUy614EZHaEN/3vofLDtaIgSmY8uwwFJcJFD0gBBwhaBJvu0YUQwMGM1Cko8HQ1uP9ZVoddu4WVmFXKJokJiKpXVuUabVgOWspnwg1Z43seNs4AZEy5HZ0CpAw1oLbUsZahFvCWF83KQNQNAF3e2uQ4wCD2TlP8/DJy5g5bxlu5Tl3fFZERERERMSduOxgPfVoH0SGqxEZzr+2kzNIGYJCHY0KAwWZhCBErcHeAwdw6YpvSjP06tEdKpUKuXl5MFloxIaxaBHDwuikY+Gr0BQBTQEcrNEsQgAC6v//n+C2tIJrz/tKVh4+XbQK+49eEMJsERERERERt+CSg9W3e1s0a8yvYKorUJQ1j6dQSwMgoGkKLMdh917frDuo0ajRNTkZunIdOEJBLiWIUBIYzRTM9SwdhBD3OoznLmfjv79sROa+U25dR0RERERERAhccrBGDLStsO4upAxQUkFBW0lBJrFKM1y+ehX7Dh70qB2O0qdnT8TFRCOvoABmFojREAQrCIzuOQ1b7zBbWGzddRzL1+zEyXPXvW2OiIiIiIiIwzjtYCU2aoDe3doIaUud0JQ198rCUpDQHOTyAOzZt98nE/soikKP7t1gMBnBEUBC3869EqkVk8mMQycuYcvuE9i+9xS0Or23TRIREREREeGN0w7WyMGej16VG4DSCgpSCYEiMBC5efk+m9zeLSUZTZs0QVlZKSwsEBJEoA4iDus6PShwhOBGdgGOn7mG/ccu4PCJS6LcgoiIiIiI3+OUg6VWBmJoP/tFYyWMNdok5Cm5ACnBjSIGVSYKAVIOKqUSW7dnothHlal7p/YEQ9NgWevpuphQDnIZESy5naL+Xy/KX9LlK6uMyC0oxa28YlzJysXZizdx6VoObtwqrJf6YCIiIiIiDy5OOVhD+nZCWIjSZpuUAYrLKRRXWCUJhKBaM6pIR0MqIZBKpaioqEDmzl3CLCAwTRo3Rrs2re/ocskkQJmeQnkVA04gP8LCAkEBQFQIB3sCubqKShQW68Aw7q0FxdA0DEYTyiuqYGFZlFdUQVdeieKychQWa1FYrEV+kRb5hWUoLSsHJzpTIiIiIiL1HKccrBGDbG8PMjTAEuB6IY0yvTURXSgIrM4bQxNo1GrsP3gQV65dE24BAUnt2QNqlRq5eXmgKKtEQU4pDY4IF20ymCm0iGEhZQiMnO1ZZy38AxmZR93uYFEUBY7lRMdJRERERETkNrxdoF4prdGyaZzNNqmEILeUht5AISgAoGkKEomwYvEURYFhGOzcvVfQeYVCrVajT2pPVFVVQSqV3rl+1/86xd2FOC0sEBZMEB3CwcLadq6u3shDRuZRAADLisn1IiIiIu5Eo9EgMjIS5eXlyMvLE9MeRPg7WCMHd7N53ZoTVK1RBQAcJJIABMhkYAUs8qhWqXD2wgXsP3RIsDmFZGD/vkhIiEdOTq4gzmV1sUmO40DT1r+thaMQpmQhlxK7SuhrN/mmdIWIbQYNGoSZM2eipKTEoS9mpVKJmzdv4p///Oc9hUjj4uLw/fffg6KoOmuQRUZGYtasWVi9erVDNiqVSnz11VeIj4+vUdA3LCwMe/bswauvvurQXC+++CImTpyImzdv1tovPDwcGRkZeO+99xya925atmyJhQsXguO4e25Q7CGRSBAUFITXX38d+/btc3idxYsXo3Xr1igrK3N4TEREBF555RXs3XvvjaJEIsFPP/2EuLg46HS6WueIjY3FkiVLsHDhQofWXLRoEdq2bYvS0lKH7awLhUKBqqoqTJkyBTdu3HBqjl69euGzzz5DXl4er3ESiQQ6nQ6FhYXIz8/H2bNnsWfPHuTm5jplB18SEhIwduxYpKamok2bNneKLZtMJmi1WmRlZeHIkSPIyMjA+vXrBakJ+NFHH6F///4oKipyqH9oaCiOHDmCl156ifda3bt3x9y5c1FeXu6WQs1SqRRSqRTTpk3DqVOO6Rvy+XzcPUahUODll1/GsWPHAABz5sxBv379UFBQUOvYiIgIZGZm4o033nBorRpr8+ncrHEM+nZva7NNxgClegqlegpSCaAMViIvPx+LvlsCk8l0TzTHFaRSKYqKi322cOvR4ycxbcbrMBgMoFwsOEiBQrm+ApGREXjhnxMhk8lgMJgglxKEqwhYO1uD+ioj1m/1TQdUxDaNGzdG1678TuaWl5dj+vTp9zhYwcHBGDhwoMNzNGvWzOG+QUFBGDJkCMLDw222d+3aFVqtFh9++GGdc7Vt2xbt2rVDu3bt6uxrNBodtvFuYmNjkZaWxntcfHy8ww6WVCrF0KFDERdnO6pfGw0a1CwHRtM0BgwYYPdvfD8dOnRwqF+1nQ0bNuRlo6O0aNHCaQcrJiYGnTp1EsyWLVu24L333qvhvApFXFwcPv30U/ztb3+z2S6TyRAREYGIiAh07twZkyZNgl6vxy+//ILZs2cjKyvL6bX79++PlJQUXmMiIiKcWisuLg49e/Z0aiwfIiMjHe7L9/NxN40aNbrjYHXr1g1dunRxaJwrvgYvB+uRgfZfWOq2RhV7W6NKGRyMFatX49yFB6ukyZWrVwWfs0liY4SFhaKstAwmFohWWQVLTXZuytO3HUZRiWPevYhv4IwzTtO06048j/EURdXZ/4MPPsDJkyexZs0al+y6m+rILV+c3aLh+zdx1j4h4PMc3WlnYGCg2+bmS1paGtLS0jB37ly8+eabgs49YsQIrFq1ivffMigoCJMmTUJ8fDyGDBni9Pqe3Hb0VBDDUzqW3tiyZQDMdKRjoCIA773yJBTygBptEgaoNALXChhQFBAYqICuohzf//gz9HpRKNJVXpg0ESEhGlRUVgKgkBDJQREA2EutmrXwDxQWaz1qo4hrlJSUQC6XIyIiAhqNpta+HMfhwIEDmDdvHjIzM+9pKysrQ2VlJUJDQxEVFWXXWbh58yZ+++03fP/99yhxUOqksrIS4eHhaNmyJRQKhd1+w4cPx4oVK1BcbL8Qd2lpKSIjIxEeHm53Lp1Oh507d2LevHm4dOmSQzbeTWFhISoqKqBWqxEVFVXnj+KFCxfw008/YenSpaioqHBoDZZlUVRUhPDwcMTExIBh6j46ffbsWfz8889YtmzZPdHH6vnKysoQFhaGmJgYuzbn5+dj/fr1WLhwIXJycupck+O4O3ZGRkYKtqNQzS+//OLUawRY3wtyuRwqlcqpyIQ9evbsCYPBgD17hNFKfOqpp/D777/X+ExZLBbk5uZCp9NBJpPVmhpy7do1/Pzzz07bkJWVhaCgIERGRtbp1Gq1WmzevBlz5szBBScCHQ899BCeeOIJZ011mB9++MHhqB7LsiguLr7zeavrM82yLC5cuIDFixdj2bJld6LhhYWFCAsLQ0REBORyuc2xBoMB27Ztw+eff47z58/ze1J3QRx5PDasBzmW8bnNx7ntC0j6bwvJV59/Tb77+kuyftUKMuWfEx2aV3zU/kju3Ims/eNX8r/F35BvFn5Fli/5kpzc/Dk5scn2a/HVR8973Wbx4drjueeeI/Y4e/YsadCggUPzNGrUiFy5cqXGHJMnT3bZxpUrV9q1kRBCjh8/ThQKhUNzffrppzXGL1++XNC/aUJCAsnOzrZr79ChQ11eQ6FQkHXr1tX6dxk+fLjD8zVq1IjcunWrxhxTp051yU6JREJWr15t18ZvvvmG9OjRgzz22GP3PIYMGULGjx9PdDpdjTFDhgwR5HXq3bs3YVnWpl15eXlk7NixZNiwYWTUqFFkxIgRZObMmaSkpMTuczEYDCQ+Pt5lu5o3b06MRqPNNZ566qk7r39CQgIZOHAgmTt3LikrK6vRd8OGDYK9p+fPn2/3eS9dutTl+UePHm1z7kmTJpEBAwaQtLQ0MnXqVLs2nDt3jjz88MNk+PDhpH///uSVV16x2a93795O2SeXy+v8Hnr44YdrnYOmaXLs2LEa4xYuXCjIa+TwFuFjw3rYvM7QgNFMoaicBsNYNaqqDFXI3OWbGlX+Rt9evUBRNFiWBSE0IlRWaQZ7ye0rN/jm6UoRxzlUywGOnJwch5OBb9y4gby8PCQmJt5zvToPwRWeffZZtGnTBs2bN7fZ3r59eyxZsgRjxoypc67Dhw/XuOZsNMQe169fR15eHmJjY2u0VVVV4dy5cy6vUVVVhQULFuDhhx+22yckJMTh+RQKBWJiYu65durUKXzxxRdO2whYIy5nz57FiBEjbLYfOHCg1qjPE088gcGDB99zTajT4keOHIFer4dSWVNnsbi4GL/99ts9W1dr1qzBmjVrcODAAZtRuYCAADz55JOYO3euS3bNnDkTMpmsxvXZs2dj6dKlAKyv//Xr13H9+nVs2rQJRUVF+Pjjj11atzYuXrxot82ZiJUjbN68GYsXL77z79ry7m7duoW//vrrzr+3bt2KsWPHonNn+yLlfDAYDHj55ZfRv39/qNVqm3169ep1jw33V7D4xwAAFqpJREFU0759eyQlJd1z7cKFC3jttdcEsdGhjeTunVuhRZOaX0wAIGEISioolFdSkNAEGo0aJ06extlzzofURKw0SUxEh6R2KCsrA8tRCJIThAYTmGuRZti256SHrRQRmoCAmtvwvjZ/RUUFdu7cWWufJ598Em+99VadcwUFBblsjyPYcwIYhhEsP2nr1q04fvy43fbx48c7PNe4ceNqXFu7dq0zZtWgNoeoLmfp999/r3HN2URqPgQEBNh0oo4dO4Zvv/3W7riOHTu6tG7z5s3x6KOP2mxbtmyZ3XFCbU3ao7btaKHlkapJT093uK+trbeMjAwhzcHNmzcxf/58u+2vvfYa2rSxXzP5nXfeqXHtP//5DwwGgyD2OfSt8uhQ+9IMHEehSEsDFAFN05AwEuzYvVsQ4x50+qamQqVUwmgywcJSCFNyUAQQu7lXqzfu96yBIg80jnyJz5o1q9aITn2ktgT/Xr16oUWLFnXOQVGUzR/13377zSXbhOCvv/6CVntvjqc3E/0B1HpiMD4+3qW5O3bsaPOmpKKiotZo8t69e3HNR8WwncXVwytCHn6pZsGCBbXKvUyfPt3m9e7du9f4jO3YsQO//PKLYLbV+alo3CgK/Xu0t9kmZQBtFYWySgpSGlAplbh05Qp27xN/6F0lRKNBcpfO0OrKwREKMilBRC3SDFUGEzZsO+JhK0UeZBw9bffzzz/zkoPwd/7880+7bTRN292au5s+ffrU2H7NzMx0WC/InRQWFmLLli3eNuMe8vPz7bbZ2m7kg71t8ODgYHTv3r3WsfdHfFy1xZPcHy3MyMjAVRdPyR86dKhGhNfVAxdarRaffPKJ3fbx48fbjGLZcrw++OADl2y5nzpvQUfZERYFrGVfirQ0zCwgl1rfcLv37gPnoxpV/kS3rimIi41Gbl4ezCyNBhoOwXICs50TrRmZR1FcKkoziPgeGo0GK1euRIcOHXxWv05ITpw4ge3bt6Nv374220ePHl1nbs7o0aNrXPOF6FU1H330Ec6fP4/i4mKEhIRg/37v3lTXFkHjIwDLd+6FCxfiyJEjuHXrls32VatWoVWrVigoKEBoaCi2bdvmki2e5MyZM1i0aBEMBgPUarVg77+PP/4YAwYMgE6ng0QiESTKt2jRIkyZMgUtW7a02f7yyy9jwoQJd/49aNCgGp+xP/74Q/DXp1YHSxUciOFpybYHMoDeiDtFneVyOfLy87Bzt3v3nR8UenbriiqDARyhQFMEESoONGU9mmCLVelicruI79K2bVv8/PPPGDt2rLdN8QhLly6162AlJyejffv2OHHihM32gICAGl/+paWlWLduneB2OsuxY8cEOSwhFK1bt7bbVpdad13UljDeqFEjnD9/Hi+++CJ+/PHHGu1bt27F1q1bXVrfW5w6dQqTJ08WfN7ly5dj+fLlgs5pNpvx4Ycf3jlwcD/PPfccFixYgNOnTwMAXn/99Rp9Zs+eLahNQB1bhEP7dYJGbTsBVUITFJfTMJgoMDRBiEaDg4ePoqCwUHAjHzQ6dkhCq5YtodPpYGYBdZA1ud1kJ3q178h5nDrvvDqwiIgQcBxXa4RqzJgxTpec8DfS09Nr1Re7/xTe3QwcOLCGynt6errdKInQuKMsirupTbHf1ROiJ0+erPVvEhwcjB9++AHXr1/HjBkzEBYW5tJ6Is6xbNmyWreuZ8yYAQAYNmwY+vXrd0/bokWL3HLDUKuDNXyA7egVTQNGC4VCHQWaJpAwElTo9dghSjMIQt/UVEgYBhaWAyFAhIqAYQg4O+GrVemO100TEXEXFosFCxYsqPXo9pw5c1xSsvYXcnJysGnTJrvt9sqsAMCoUaNqXLN1cs9dTJ06FUuXLr0jgVD92LJlC5YtW2b3SLy36NevH4YOHWq3fdWqVS7Nf+bMGfzxxx919ouPj8enn36K/Px8rFy5EqmpqS6tK8Kf2sp0jRs3Dm3atMFTTz11z3WtVit47lU1dh2s5KTmeKh5I5ttUgYoqaBQYaAgoQG1Wo3TZ8/ijCjN4DKNE+LRqWMSSm9LMwQHEIQHczBbbCcUX88uwPa9ojSDiPeRyWRYsmQJXnzxxVr7LV++vIY2V32kttNIHTp0sJkgrVQqazhYV65cwcaNGwW3zx7t27fH2LFj8cgjj9zz6N+/P0aPHu01B8tkMt0pq1ItUdCuXTv89NNPdsd8//33NnXW+PLGG284rO7PMAweffRR7Ny5E8eOHasRLRFxHzt37rS7TQhYT8De//maPXu22wqE23WwHh1iR5oBAEesdQcJAWiaAsPQ2L1HjKIIQZ/UnlApVTCZTGBZCuEqUqs0w9pNB8DaaxQR8TDR0dFYt27dPWKE96NWq/H777+7Xe/L22RkZNSawGtrm3DYsGE1SiWtWrXK6YLXQlNVVeU1Wxo2bIgVK1Zg06ZNOHr0KLKysnD48GGb4rEAsGnTJkyaNEmQtbOysjBkyBCHy0pVk5SUhK1bt+LXX3+t9+93X6G2E4Xx8fH36HNdunQJ8+bNc5stNh2sxo2ikJaaZKsJUgmgq6SgraQglVj3n69ey8JeL58iqQ+EaDRISe6C8ooKEEIhQEoQpiSw2JFm0FcasH6rfdVvERFPU33kesqUKbUKkXbq1AnfffcdAGtkoj5isViwYsUKu+3Dhw+vcc3W1uHq1asFtcsVFAqFTUVzTxAcHIwRI0ZgwIABaNeuHRo1amTziP/169fxwgsvYNCgQYKeWt39f+2de1AT5xrGn00QEuVSRhRBoFShhCAVqCm3WkepUM5wbK0UgkIVqCPScWjpdKRWgbYD6gwOlRlBOoFaq63OAGKrXFTa2gMtRMVSOErhdLxwFCwSLiIJCcmeP3JAMLshkAto9zeTP8j37e4LG+O77/d+z1NbC3d3d52WCx8nOjoaFy9epPW9YzAcTU1NWh/wxrNv3z6jmk1T7iJct9YfbDZ1cYtFkOgeYEM+QoAzh8RcLhe1v/4K2Sx5wnqSCfT3h+MiB3Tf74b8/9IM1nNJyBXU8yt/vIK/7jOmzgyzD5VKhaioKFy6dAnOzs6Uc2JjY3H69GmdjV6fRMrLy2ltN3x8fBAYGIhff1VX/xcuXKixnFRfX69VRNMY1NTUoK6uTqOSxuVyIZFI9JY9MDYHDhxAfn6+Uc4tkUgQFRUFb29vpKamIiYmRufKlL+/P0QiEWJjY40SG8Mj9u7di82bN2tNaC9fvozi4mK9ruPu7g43Nzf09vaiqakJUql0wrhGgmVtORf/WEPtFaSWZiAgeUBgDludXP154wbOXXgyt6HOJggQeDkoAIoRBUiSAPv/0gwACRLUFazT1Q2mDZKBYQrcu3cPMTExqNXi7HDw4EGTJxCm5JdffkFDQwP8/f0px4VC4ViCtW7dOlhbW08YN2Vz+yjHjx/Hl19+afLrTsaDBw9QXl6Onp4ehIWFwdPTk3Letm3bUFBQYFTNtebmZsTHxyMlJQVRUVFISEhAYCC9ZuQomzZtQmFhIf7FbAgzKrdu3cL+/fuRkZFBOyczM3Pa51+/fj2Kioo0vEWLi4uRkpIy1q+nkWCFrvLFQjvqJsY5bBJ3JWwMDRPgmJMAAQwNDSEoIABcDkdnZWeGiUilUjg5LcazLs7o71dLMzwzl4StJUnb3C6+2oaWP57eJ3+Gp4O6ujps3bqV1ivO0dERkZGRJo7KtJSUlNAmWOPlBYRC4YQxmUymVRXeWGjzuJtJOjo6EB8fD6VSidDQUFpfu2XLliExMRFffPGF0WMaGBiASCSCSCSCp6cn0tPTNe7j42zYsIFJsEzAsWPHkJ6eTpmXNDY24uzZs9M676FDh5CcnIxbt27hww8/hFgsxqJFi5CcnIyEhASsX78eAQEBaGtr00yw1oVSfxGwCGBYQaB7gAUWS60XMDj4EI4ODnh321YQBAGSpJPBZNAGi8WCXC5Hj0QCkiShItXN7WYsEjIaY+fvzotNHCWDqTCkrxuXy9V4z1hGsHSIRCJ4eXnhvffeM+l1ZwulpaXIysqi7F3i8/ng8/lob2/Hyy+/PGGssrISN2/eNFGUs59Rs2elUolz586htrZW4282SkpKCkQikUk1va5fv46YmBgcPHgQ33//Pezs7CjnBQQEmCymvzNKpRIqlYrygWFoaGha58zMzERycjI+/fTTCdWx5uZmnD9/Hr6+vmhsbERVVRWWLFkyMcEKFvDhzaM2xjQ3I9HVx0b/EAFzMxIkCRAECwrFCLru6aeUy/CIESWBeRbAfCsVFDTJ1e073Th3sdHEkTGYCm1Nl4+XpLVhYWFB6X32eJ+AKXj//ffB4/G0Cmw+rdy4cQOVlZW0HoShoaHw9PTU6OWZieXBqRAXFweBQIChoSHI5XIcOnRIqyegocnNzaVNsPh8PrZs2aJ3jw0ABAcHIzU1FQMDA7C2tkZrays+/vhj2vn19fUIDw/HpUvMBqSZhM1m0z6sTuch08nJCRkZGfjuu++QkZGB0NBQHD16FObm5rC0tERmZiays7PH+ir37NkzMcF6XUv1akRF4G4vgRElQNP/zmAAhkcIONkpwbUAZDSbq74/L4Zi5On3dPu7cuPGDfT19Wk0GQPqJTU7Ozvcv39/0vO4ublp6E0pFAqtQqDGRCgUorGx8W+hgfU4JSUltAlWfHy8RqWlu7sbp0+fNkVo0+LZZ5+FSCQaq8pJpVKT922VlZXh6tWr8PX1pRxPSkoySILF4/Hw5ptvjv2sUqmQn5+vVVn/8uXLKC0tpfSUZHgyefvttwFgbNOKt7c37O3t4efnh4iICGRlZeHs2bOor69HU1MTtm/f/ijBclm8AK+uXE55YhKAfARwtFXB0VYFptXKeJAkYM2l3zk4JB3G2Rr9hfMYZi8SiQTt7e0QCAQaY4sWLYJAIEBlZeWk51m9erXGE5xEIjFplWE8/f39iIqKglgsNugy6JPAqVOn0NPTQ2mj8sILL2i8V1JSMiOVRl3Zvn37hCXPBw8eoLe31+RxfP7555QegAAgEAggFApx4sQJva7xeEWZxWJh+fLlk1oXNTQ0UCZYPT09esXDMDMEBwdDIpGgra0NwKOVAD6fD1tbW8hkMvT3q3f1l5eXIyMj41GC9c+1L9E2qZOkuoq10Ea74TCD/hAA5EoCSiUoE9nqnxrR+dfUxO4YnjxKSkooEywA+OijjyZNsOzs7CiXMX788UcoFDTZuwm4cuUKYmNj8c0338xYDDPBw4cPUVZWhq1bt+o0/+TJk0aOaPrY2toiMTFxwnuDg4MzIt9w7Ngx7Nq1Cx4eHpTjqampeidYVAgEAlRUVGidw+fzKd8/c+aMweNhMD5cLhcPHz4c+1kmkwFQexz6+vriypUrGj2TLADgcsxplwfHIx8hIFMQGGZeRnvJFARUKurkCgDKqxlB178DR48epa0IrFy5EhUVFbC3t6cc9/PzQ01NjYZhMKC/L9t4qBS9dRHt+/bbb7V6hhkLutiUSqVRt/SPout/9C0tLbh48aJRY9F2nyb7WyQkJGg0cJtC3V0ul2s8HKhUKuTl5dEeIxAItPo+TpeNGzdi6dKltOMODg6UnpI9PT1axWengrb7ZIrP82TMtPuAVCqlfZgcTY6mQn19PZydncc++3Z2dpDL5fDz88PatWvx4osvjkmHBAUFYXh4WJ1gha3yw4L5s8vAk0ET8W9t+P36zZkOg8EEdHV1IS0tjXY8PDwcN2/exLlz53DgwAGkpaUhNzcXdXV1EIvFlMtOYrF4WirUVPj4+FD2voSFhcHS0nLS49PT0w2a7GnDwsICERERcHGh9lblcrlYt24d5s2bZ9Q4fvjhB1y7dm3SecauXllaWoLH49GOr1mzBm+88Qa2bds24ZWYmIgtW7ZQek0ODAzoHReHw0FkZCTlxgxA3X8YHR2tIR555MgRdHR00J43KysLb731FuXy7HR5/vnn0d7ejlOnTiEmJgY8Hm8sboIgUFhYSOnZuHv3bnR3d+t9fScnJ6xevZp2PCgoCG5ubkaVTrKysqLtKwTUIpwhISEz0g7A4XCwYcMGWtcBT09PRERETMmVYPTf5c6dOwGodyKOPqiMVm9lMhk4HA7Wrl2Lr776CgQA8qvP38cLnq7T/20YTEJa9hFUX7w602EwmJBRzRV9kcvlCA4O1sv4ls1mIysrC3FxcXB0dKSdp1Ao0NTUhA8++ECrXc7cuXNx6dIlyqWUzz77DOnp6dOOFQDs7e2Rl5eHsLAwnQyKh4eHUVtbi+Tk5LE+C0PzySefTPp78fl8XL9+3eDX3rVrF+Li4rB06VJKixl9OH/+PEJDQ6d1rIeHB/Lz8/HSSy/plJwPDg7ip59+wo4dO8aWZNLS0rB3716tx8lkMjQ0NKCoqAhff/21zvHFx8dP2iyvUqnQ2dmJvr4+zJ8/n7J6nJWVhd27d+t8XSqSkpKwc+dOuLq66jT/7t27yMvLw/79+/W67ngCAwNRUFAAPp+v0+eor68PJ0+exI4dO4zensDj8VBUVAQ/Pz+dbIn6+/tRWVmJ5ORknXoIT5w4gejoaERGRqK0tBQsFgskSY5JVNnY2OD333+Hi4sLHBwcwArw82CSqyeA/3b24EJt00yHwWBi3n33Xa1bwnVhcHAQr7zyil7JFQAsWLAAiYmJWpMrQO1HuGLFCoSEhGidNzQ0hOjo6Al9DYbEy8sLUVFROiVXgLrSFRISQrsrzRBMVkGsrq42SnJlZmaGpKQk8Hg8gydXgH4VLF9fX6xZs0an5ApQV+AiIiLg4/PIL/fIkSOT9oBxOBysWrUK2dnZtFUyKqqrqyd1G2CxWFi8eDG8vLwok6vU1FS9kysA2Lx5s87JFaCu+r3zzjt6X3c8K1euxPLly3X+HD3zzDPYtGkTFixYYNA4qFi2bBmCgoJ09ny0sbGBUCjUutw7HqFQCLFYjJKSEohEIixevBg2NjZwcnLCxo0bcefOHbi4uCA8PBxdXV1gbYnS/iXIMDs4c0EMpdJ0onkMs4fs7Gz4+PigpmZqllQKhQKFhYVwdXVFQ4P+tkosFmtK5X5dFMFbWlqM5s02XUFVYyqZt7S04MKFC7TjpaWlRrkum802qsDsTOx4HH+furq6UFBQoNNxBEFMaens7t27CA4ORnh4OCoqKqbU31RWVgZ3d3fk5ubqfIw2pnMPzczMZoXLymyIgY6pxObv74+8vDwkJibi9u3b6O3tRUdHB44fP47Ozk54eXmhqqoKAGD27z9u4z83OzE8PHM7ixjomTPHDEqlCqUVT69fG8PkNDU14dVXX8WSJUvw+uuvY8WKFfDw8ICtrS0UCgXYbDakUik6OzvR1taGuro6VFdXG3TrfF9fH3JycmBvb69VCZkgCFhbW2tNJMZTXl4OoVCIVatWoa+vD/b29lqXFnWltbUVOTk5IElSp+Z7NpsNDoeD3377Te9ra2Pfvn34888/0dvbO7a0YGFhAalUarT+q+HhYeTk5MDV1XXMJ81Q2Nra6nyvqbh27RoKCwshkei2O9rMzAzm5uZobm6e8H5+fj7Mzc21blqYN28e7ty5M62EsKqqClVVVZg/fz5ee+01BAYG4rnnnoOzszOsrKwglUpx79493L59Gz///DPOnDljcEmUw4cPw8/Pb0wOYDKsrKzQ3t5uUJeV+vp6FBcX6/y7cblc9Pb26hyzPrS2tuLw4cM6f+/NmTMHJElOKrnxOCkpKdizZw8iIiLg7e2N+/fvo7KyUqPH8n8lkFIY5pQGrwAAAABJRU5ErkJggg" alt="Purdue logo" class="logo-img">
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="scm.php">SCM</a>
+                    <a class="nav-link" href="erp.php">ERP</a>
+                    <a class="nav-link" href="logout.php">Log out</a>
+            </div>
+            
+        </div></nav>
+    
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-a3">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.php">
+        <img src="https://engineering.purdue.edu/Wraps/ECO/wrap8/themes/default/common/logo.png" 
+            alt="Purdue logo" class="logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="scm.php">SCM</a>
+                <a class="nav-link" href="erp.php">ERP</a>
+                <button class='nav-link' href='logout.php'></button>
+        </div>
+    </div>
+</nav> -->
+
+
+        <header>
+            <h2>Enterprise Resource Planning - Senior Manager Dashboard</h2>
+
+            <div class="filters">
+                <label>Date Range:</label>
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+
+                <label>Company:</label>
+                <div class="autocomplete-container">
+                    <input type="text" id="companySearch" placeholder="Search company" autocomplete="off" style="width: 200px;">
+                    <div id="companyDropdown" class="autocomplete-dropdown"><div class="autocomplete-item">
+                            <span class="company-name">Anderson Ltd</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Bailey-Lamb</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Baker, Montgomery and Duncan</span>
+                            <span class="company-type">(Retailer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Barrera-Camacho</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Bartlett Group</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Bell, Scott and Mays</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Bernard, Burns and Carpenter</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Berry-Eaton</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Best, Smith and Fischer</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Blackwell, Rodriguez and Wagner</span>
+                            <span class="company-type">(Retailer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Boyer, Moreno and Reyes</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Bray, White and Mitchell</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Buck and Sons</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Callahan-Allen</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Carter, Warner and Stanton</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Chavez Ltd</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Conrad, Howell and Ortiz</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Contreras-Kim</span>
+                            <span class="company-type">(Manufacturer)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Cunningham-White</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div><div class="autocomplete-item">
+                            <span class="company-name">Curry, Martinez and Ford</span>
+                            <span class="company-type">(Distributor)</span>
+                        </div></div>
+                </div>
+
+                <label>Region:</label>
+                <select id="regionSelect">
+                    <option value="">All Regions</option>
+                <option value="Asia">Asia</option><option value="Europe">Europe</option><option value="North America">North America</option></select>
+
+                <button class="btn btn-success" onclick="applyFilters()">
+                    Apply Filters
+                    <span id="loadingSpinner" class="spinner" style="display: none;"></span>
+                </button>
+                <button onclick="clearFilters()" class="btn btn-danger">Clear</button>
+            </div>
+        </header>
+
+        <!-- sidebar container-->
+        <div class="d-flex flex-grow-1">
+
+            <!-- sidebar -->
+            <div class="nav flex-column nav-pills me-3 p-3 border-end" id="sidebar-tabs" role="tablist" aria-orientation="vertical" style="min-width: 200px;">
+
+                <button class="nav-link btn-success" id="tab-1" data-bs-toggle="pill" data-bs-target="#financial-health" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Financial Health
+                </button>
+
+                <button class="nav-link btn-success" id="tab-2" data-bs-toggle="pill" data-bs-target="#regional-disruptions" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Regional Disruptions
+                </button>
+
+                <button class="nav-link btn-success" id="tab-3" data-bs-toggle="pill" data-bs-target="#critical-companies" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Critical Companies
+                </button>
+
+                <button class="nav-link btn-success active" id="tab-4" data-bs-toggle="pill" data-bs-target="#disruption-timeline" type="button" role="tab" aria-selected="true">
+                Disruption Timeline
+                </button>
+
+                <button class="nav-link btn-success" id="tab-5" data-bs-toggle="pill" data-bs-target="#company-financials" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Company Financials
+                </button>
+
+                <button class="nav-link btn-success" id="tab-6" data-bs-toggle="pill" data-bs-target="#top-distributors" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Top Distributors
+                </button>
+
+                <button class="nav-link btn-success" id="tab-7" data-bs-toggle="pill" data-bs-target="#disruption-details" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Disruption Details
+                </button>
+
+                <button class="nav-link btn-success" id="tab-8" data-bs-toggle="pill" data-bs-target="#add-company" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Add Company
+                </button>
+
+                <button class="nav-link btn-success" id="tab-9" data-bs-toggle="pill" data-bs-target="#custom-analytics" type="button" role="tab" aria-selected="false" tabindex="-1">
+                Custom Analytics
+                </button>
+
+            </div>
+
+            <!-- main content -->
+            <div class="tab-content flex-grow-1" id="sidebar-content">
+
+                <!-- financial health -->
+                <div class="tab-pane fade p-4" id="financial-health" role="tabpanel" aria-labelledby="tab-1">
+                        <h3>Average Financial Health by Company</h3>
+                        <button class="btn btn-success mb-3" onclick="loadFinancialHealth()">Load Financial Data</button>
+                        
+                        <!-- Financial Health Cards -->
+                        <div class="data-grid">
+                            <div class="data-card" style="height: 400px;">
+                                <h4>Average Financial Health by Company</h4>
+                                <div class="data-card-content">
+                                    <canvas id="financialCompanyChart" style="box-sizing: border-box; display: block; height: 0px; width: 0px;" width="0" height="0"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="data-card" style="height: 400px;">
+                                <h4>Average Financial Health by Type</h4>
+                                <div class="data-card-content">
+                                    <canvas id="financialTypeChart" style="box-sizing: border-box; display: block; height: 0px; width: 0px;" width="0" height="0"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="financial-output"></div>
+                </div>
+
+                <!-- regional disruptions -->
+                <div class="tab-pane fade p-4" id="regional-disruptions" role="tabpanel" aria-labelledby="tab-2">
+                        <h3>Regional Disruption Overview</h3>
+                        <button class="btn btn-success mb-3" onclick="loadRegionalDisruptions()">Load Regional Data</button>
+                        
+                        <!-- Regional Disruptions Card -->
+                        <div class="data-card" style="height: 500px;">
+                            <h4>Disruptions by Region</h4>
+                            <div class="data-card-content">
+                                <canvas id="regionalChart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0" height="0"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div id="regional-output"></div>
+                </div>
+
+                <!-- critical companies -->
+                <div class="tab-pane fade p-4" id="critical-companies" role="tabpanel" aria-labelledby="tab-3">
+                        <h3>Most Critical Companies</h3>
+                        <button class="btn btn-success mb-3" onclick="loadCriticalCompanies()">Load Critical Companies</button>
+                        <p class="text-muted">Criticality = # Downstream Companies × High Impact Count</p>
+                        
+                        <div id="critical-output" class="placeholder">
+                <div class="data-card" style="height:auto;">
+                    <h4>Top Critical Companies</h4>
+                    <div class="data-card-content" style="max-height:500px;">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Type</th>
+                                    <th>Downstream Companies</th>
+                                    <th>High Impact Events</th>
+                                    <th>Total Events</th>
+                                    <th>Criticality Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                    <tr>
+                        <td>Bailey-Lamb</td>
+                        <td>Manufacturer</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>120</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                
+                            </tbody>
+                        </table>
+                        <p class="text-muted" style="font-size:0.85rem;">
+                            Criticality Score = Downstream Companies × High Impact Events
+                        </p>
+                    </div>
+                </div>
+            </div>
+                </div>
+
+                <!-- disruption timeline -->
+                <div class="tab-pane fade p-4 active show" id="disruption-timeline" role="tabpanel" aria-labelledby="tab-4">
+                        <h3>Disruption Frequency Over Time</h3>
+                        <button class="btn btn-success mb-3" onclick="loadDisruptionTimeline()">Load Timeline</button>
+                        
+                        <!-- Disruption Timeline Card -->
+                        <div class="data-card" style="height: 500px;">
+                            <h4>Disruption Frequency Over Time</h4>
+                            <div class="data-card-content">
+                                <canvas id="timelineChart" style="display: block; box-sizing: border-box; height: 431.3px; width: 2164px;" width="2164" height="431"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div id="timeline-output"></div>
+                </div>
+
+                <!-- company financials -->
+                <div class="tab-pane fade p-4" id="company-financials" role="tabpanel" aria-labelledby="tab-5">
+                        <h3>Company Financials by Region</h3>
+                        <div class="mb-3">
+                            <label class="form-label">Search Company:</label>
+                            <div class="input-group" style="max-width: 500px;">
+                                <div class="autocomplete-container w-100">
+                                    <input type="text" class="form-control" id="companyFinancialSearch" placeholder="Enter company name" autocomplete="off">
+                                    <div id="companyFinancialDropdown" class="autocomplete-dropdown"></div>
+                                </div>
+                                <button class="btn btn-success" onclick="loadCompanyFinancials()">Search</button>
+                            </div>
+                        </div>
+                        
+                        <div id="company-financial-output" class="placeholder">
+                            Enter a company name and click Search to view detailed financial data.
+                        </div>
+                </div>
+
+                <!-- top distributors -->
+                <div class="tab-pane fade p-4" id="top-distributors" role="tabpanel" aria-labelledby="tab-6">
+                        <h3>Top Distributors by Shipment Volume</h3>
+                        <button class="btn btn-success mb-3" onclick="loadTopDistributors()">Load Distributors</button>
+                        
+                        <div id="distributors-output" class="placeholder">
+                            Click the button above to load top distributors ranked by shipment volume.
+                        </div>
+                </div>
+
+
+                <!-- disruption details -->
+                <div class="tab-pane fade p-4" id="disruption-details" role="tabpanel" aria-labelledby="tab-7">
+                        <h3>Disruption Details</h3>
+                        
+                        <div class="grid-2">
+                            <div class="data-card">
+                                <h4>Companies Affected by Disruption Event</h4>
+                                <div class="mb-3">
+    <label class="form-label">Disruption Event:</label>
+    <div class="input-group">
+        <select class="form-select" id="eventIdSelect">
+            <option value="">Select an event...</option>
+        <option value="82">Other - 2025-12-26</option><option value="122">Other - 2025-12-25</option><option value="1112">Pandemic - 2025-12-23</option><option value="1108">Supplier Bankruptcy - 2025-12-21</option><option value="961">Political Unrest - 2025-12-18</option><option value="1072">Political Unrest - 2025-12-12</option><option value="426">Pandemic - 2025-12-07</option><option value="486">Transport Failure - 2025-12-05</option><option value="371">Energy Outage - 2025-12-03</option><option value="653">Supplier Bankruptcy - 2025-12-02</option><option value="175">Other - 2025-12-01</option><option value="830">Labor Strike - 2025-11-28</option><option value="240">Regulatory Change - 2025-11-28</option><option value="907">Port Congestion - 2025-11-27</option><option value="29">Energy Outage - 2025-11-27</option><option value="1170">Pandemic - 2025-11-24</option><option value="319">Cyber Attack - 2025-11-23</option><option value="233">Weather Event - 2025-11-23</option><option value="90">Supplier Bankruptcy - 2025-11-22</option><option value="212">Supplier Bankruptcy - 2025-11-19</option><option value="357">Regulatory Change - 2025-11-18</option><option value="202">Energy Outage - 2025-11-16</option><option value="1070">Raw Material Shortage - 2025-11-15</option><option value="469">Regulatory Change - 2025-11-14</option><option value="235">Port Congestion - 2025-11-05</option><option value="640">Energy Outage - 2025-11-03</option><option value="516">Labor Strike - 2025-11-03</option><option value="289">Supplier Bankruptcy - 2025-11-03</option><option value="922">Political Unrest - 2025-11-01</option><option value="105">Cyber Attack - 2025-10-30</option><option value="21">Supplier Bankruptcy - 2025-10-30</option><option value="959">Political Unrest - 2025-10-28</option><option value="879">Weather Event - 2025-10-28</option><option value="885">Energy Outage - 2025-10-26</option><option value="12">Port Congestion - 2025-10-22</option><option value="656">Weather Event - 2025-10-21</option><option value="798">Natural Disaster - 2025-10-19</option><option value="490">Raw Material Shortage - 2025-10-16</option><option value="945">Regulatory Change - 2025-10-13</option><option value="1199">Regulatory Change - 2025-10-12</option><option value="605">Raw Material Shortage - 2025-10-12</option><option value="569">Supplier Bankruptcy - 2025-10-10</option><option value="796">Raw Material Shortage - 2025-10-05</option><option value="531">Raw Material Shortage - 2025-09-24</option><option value="806">Supplier Bankruptcy - 2025-09-21</option><option value="322">Port Congestion - 2025-09-19</option><option value="591">Raw Material Shortage - 2025-09-17</option><option value="1047">Energy Outage - 2025-09-14</option><option value="1160">Regulatory Change - 2025-09-13</option><option value="682">Cyber Attack - 2025-09-13</option><option value="688">Supplier Bankruptcy - 2025-09-12</option><option value="1057">Cyber Attack - 2025-09-11</option><option value="939">Regulatory Change - 2025-09-11</option><option value="717">Natural Disaster - 2025-09-08</option><option value="1023">Other - 2025-09-04</option><option value="394">Energy Outage - 2025-09-04</option><option value="1123">Political Unrest - 2025-09-02</option><option value="957">Cyber Attack - 2025-09-01</option><option value="160">Cyber Attack - 2025-08-31</option><option value="3">Political Unrest - 2025-08-28</option><option value="125">Transport Failure - 2025-08-27</option><option value="533">Cyber Attack - 2025-08-26</option><option value="935">Political Unrest - 2025-08-24</option><option value="1076">Natural Disaster - 2025-08-23</option><option value="805">Natural Disaster - 2025-08-21</option><option value="662">Political Unrest - 2025-08-14</option><option value="79">Labor Strike - 2025-08-13</option><option value="784">Supplier Bankruptcy - 2025-08-12</option><option value="1168">Regulatory Change - 2025-08-06</option><option value="1091">Transport Failure - 2025-08-04</option><option value="1027">Labor Strike - 2025-07-28</option><option value="41">Transport Failure - 2025-07-28</option><option value="1116">Natural Disaster - 2025-07-25</option><option value="187">Pandemic - 2025-07-24</option><option value="949">Other - 2025-07-22</option><option value="280">Regulatory Change - 2025-07-22</option><option value="424">Other - 2025-07-17</option><option value="1031">Natural Disaster - 2025-07-15</option><option value="130">Labor Strike - 2025-07-15</option><option value="844">Natural Disaster - 2025-07-14</option><option value="227">Weather Event - 2025-07-14</option><option value="30">Pandemic - 2025-07-14</option><option value="1022">Supplier Bankruptcy - 2025-07-08</option><option value="543">Labor Strike - 2025-07-07</option><option value="852">Pandemic - 2025-07-04</option><option value="6">Political Unrest - 2025-07-04</option><option value="332">Other - 2025-06-30</option><option value="1198">Other - 2025-06-23</option><option value="252">Energy Outage - 2025-06-23</option><option value="869">Supplier Bankruptcy - 2025-06-22</option><option value="226">Raw Material Shortage - 2025-06-17</option><option value="680">Raw Material Shortage - 2025-06-11</option><option value="482">Pandemic - 2025-06-11</option><option value="35">Labor Strike - 2025-06-09</option><option value="1016">Regulatory Change - 2025-06-06</option><option value="931">Regulatory Change - 2025-06-06</option><option value="745">Natural Disaster - 2025-06-06</option><option value="610">Pandemic - 2025-06-06</option><option value="636">Regulatory Change - 2025-06-05</option><option value="311">Labor Strike - 2025-06-02</option><option value="965">Labor Strike - 2025-05-29</option><option value="406">Pandemic - 2025-05-28</option><option value="966">Supplier Bankruptcy - 2025-05-27</option><option value="883">Labor Strike - 2025-05-27</option><option value="710">Weather Event - 2025-05-27</option><option value="510">Port Congestion - 2025-05-25</option><option value="262">Cyber Attack - 2025-05-24</option><option value="1044">Other - 2025-05-21</option><option value="933">Supplier Bankruptcy - 2025-05-19</option><option value="841">Energy Outage - 2025-05-16</option><option value="1105">Weather Event - 2025-05-15</option><option value="1053">Regulatory Change - 2025-05-12</option><option value="1184">Pandemic - 2025-05-11</option><option value="468">Raw Material Shortage - 2025-05-09</option><option value="97">Energy Outage - 2025-05-08</option><option value="1026">Energy Outage - 2025-05-07</option><option value="836">Raw Material Shortage - 2025-05-07</option><option value="586">Port Congestion - 2025-05-04</option><option value="494">Regulatory Change - 2025-05-04</option><option value="886">Energy Outage - 2025-05-02</option><option value="738">Weather Event - 2025-05-02</option><option value="845">Port Congestion - 2025-04-29</option><option value="418">Labor Strike - 2025-04-26</option><option value="797">Port Congestion - 2025-04-22</option><option value="491">Regulatory Change - 2025-04-21</option><option value="714">Regulatory Change - 2025-04-19</option><option value="106">Regulatory Change - 2025-04-19</option><option value="846">Transport Failure - 2025-04-16</option><option value="1190">Weather Event - 2025-04-11</option><option value="410">Other - 2025-04-08</option><option value="241">Weather Event - 2025-04-03</option><option value="560">Supplier Bankruptcy - 2025-04-02</option><option value="909">Labor Strike - 2025-04-01</option><option value="439">Labor Strike - 2025-04-01</option><option value="1177">Cyber Attack - 2025-03-31</option><option value="270">Other - 2025-03-31</option><option value="943">Port Congestion - 2025-03-30</option><option value="500">Supplier Bankruptcy - 2025-03-29</option><option value="17">Transport Failure - 2025-03-27</option><option value="503">Energy Outage - 2025-03-24</option><option value="367">Transport Failure - 2025-03-23</option><option value="180">Energy Outage - 2025-03-22</option><option value="1012">Political Unrest - 2025-03-20</option><option value="842">Political Unrest - 2025-03-20</option><option value="848">Cyber Attack - 2025-03-19</option><option value="775">Natural Disaster - 2025-03-19</option><option value="139">Energy Outage - 2025-03-19</option><option value="567">Pandemic - 2025-03-17</option><option value="955">Other - 2025-03-10</option><option value="308">Weather Event - 2025-03-10</option><option value="975">Energy Outage - 2025-03-09</option><option value="407">Weather Event - 2025-03-07</option><option value="220">Labor Strike - 2025-03-05</option><option value="1158">Regulatory Change - 2025-03-03</option><option value="1073">Political Unrest - 2025-03-02</option><option value="231">Weather Event - 2025-03-02</option><option value="818">Regulatory Change - 2025-03-01</option><option value="515">Raw Material Shortage - 2025-02-27</option><option value="352">Raw Material Shortage - 2025-02-24</option><option value="813">Regulatory Change - 2025-02-21</option><option value="960">Supplier Bankruptcy - 2025-02-20</option><option value="504">Weather Event - 2025-02-19</option><option value="1029">Raw Material Shortage - 2025-02-18</option><option value="1094">Port Congestion - 2025-02-17</option><option value="687">Transport Failure - 2025-02-15</option><option value="566">Raw Material Shortage - 2025-02-15</option><option value="155">Weather Event - 2025-02-13</option><option value="519">Energy Outage - 2025-02-12</option><option value="310">Cyber Attack - 2025-02-12</option><option value="747">Pandemic - 2025-02-08</option><option value="1178">Transport Failure - 2025-02-07</option><option value="1121">Cyber Attack - 2025-02-07</option><option value="502">Natural Disaster - 2025-02-04</option><option value="693">Port Congestion - 2025-02-03</option><option value="457">Pandemic - 2025-02-02</option><option value="188">Natural Disaster - 2025-02-02</option><option value="232">Political Unrest - 2025-01-30</option><option value="1046">Natural Disaster - 2025-01-29</option><option value="927">Port Congestion - 2025-01-28</option><option value="403">Transport Failure - 2025-01-28</option><option value="1018">Raw Material Shortage - 2025-01-22</option><option value="625">Energy Outage - 2025-01-22</option><option value="378">Pandemic - 2025-01-20</option><option value="360">Labor Strike - 2025-01-20</option><option value="581">Supplier Bankruptcy - 2025-01-19</option><option value="1124">Regulatory Change - 2025-01-13</option><option value="1049">Other - 2025-01-12</option><option value="630">Energy Outage - 2025-01-11</option><option value="540">Political Unrest - 2025-01-08</option><option value="81">Port Congestion - 2025-01-06</option><option value="822">Transport Failure - 2025-01-04</option><option value="190">Cyber Attack - 2025-01-01</option><option value="894">Raw Material Shortage - 2024-12-30</option><option value="819">Energy Outage - 2024-12-28</option><option value="39">Regulatory Change - 2024-12-28</option><option value="131">Cyber Attack - 2024-12-27</option><option value="1034">Pandemic - 2024-12-26</option><option value="142">Transport Failure - 2024-12-25</option><option value="580">Energy Outage - 2024-12-24</option><option value="864">Other - 2024-12-20</option></select>
+        <button class="btn btn-sm btn-success" onclick="loadCompaniesAffected()">Search</button>
+    </div>
+    <small class="text-muted">
+        Select an event (Category – Date) to view the affected companies.
+    </small>
+</div>
+
+                                <div class="data-card-content" id="companies-affected-output">
+                                    <div class="text-muted">Enter an event ID to search</div>
+                                </div>
+                            </div>
+                            
+                            <div class="data-card">
+                                <h4>All Disruptions for Company</h4>
+                                <div class="mb-3">
+                                    <label class="form-label">Company:</label>
+                                    <div class="input-group">
+                                        <div class="autocomplete-container w-100">
+                                            <input type="text" class="form-control" id="companyDisruptionSearch" placeholder="Enter company name" autocomplete="off">
+                                            <div id="companyDisruptionDropdown" class="autocomplete-dropdown"></div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success" onclick="loadCompanyDisruptions()">Search</button>
+                                    </div>
+                                </div>
+
+                                <div class="data-card-content" id="company-disruptions-output">
+                                    <div class="text-muted">Enter a company name to search</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Distributors by Delay Section -->
+                        <h3 class="mt-4">Distributors Sorted by Average Delay</h3>
+                        <button class="btn btn-success mb-3" onclick="loadDistributorsByDelay()">Load Data</button>
+                        <div id="delay-output" class="placeholder">
+                            Click the button above to load distributors sorted by average delivery delay.
+                        </div>
+                </div>
+
+
+                <!-- add company -->
+                <div class="tab-pane fade p-4" id="add-company" role="tabpanel" aria-labelledby="tab-8">
+                    <h3>Add New Company</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="addCompanyForm" onsubmit="return addCompany(event)">
+                                <!-- Company Name: SEARCHABLE AUTOCOMPLETE -->
+                                <div class="mb-3">
+    <label class="form-label">Company Name:</label>
+    <input type="text" class="form-control" id="newCompanyName" placeholder="Enter new company name" autocomplete="off">
+</div>
+
+                                <!-- Company Type (unchanged) -->
+                                <div class="mb-3">
+                                    <label class="form-label">Company Type:</label>
+                                    <select class="form-select" id="newCompanyType" required="">
+                                        <option value="">Select Type</option>
+                                        <option value="manufacturer">Manufacturer</option>
+                                        <option value="distributor">Distributor</option>
+                                        <option value="supplier">Supplier</option>
+                                    </select>
+                                </div>
+
+                                <!-- Region DROPDOWN (unchanged, still like Company Type) -->
+                                <div class="mb-3">
+                                    <label class="form-label">Region:</label>
+                                    <select class="form-select" id="newCompanyRegion" required="">
+                                        <option value="">Select Region</option>
+                                        <!-- filled by loadFilterOptions() -->
+                                    <option value="Asia">Asia</option><option value="Europe">Europe</option><option value="North America">North America</option></select>
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Add Company</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="add-company-output"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- custom analytics -->
+                <div class="tab-pane fade p-4" id="custom-analytics" role="tabpanel" aria-labelledby="tab-9">
+                        <h3>Custom Analytics</h3>
+                        <button class="btn btn-success mb-3" onclick="loadCustomAnalytics()">Load Custom Plots</button>
+                        
+                        <div class="data-grid">
+                            <div class="data-card" style="height: 450px;">
+                                <h4>Custom Analysis 1</h4>
+                                <div class="data-card-content">
+                                    <canvas id="customChart1"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="data-card" style="height: 450px;">
+                                <h4>Custom Analysis 2</h4>
+                                <div class="data-card-content">
+                                    <canvas id="customChart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="custom-analytics-output"></div>
+                </div>
+            </div>
+        </div>
+
+        
+<div id="footer-container" class="mt-auto pt-3 footer-wrapper">
+
+    <!-- Purdue Legal Bar -->
+    <div class="legal-bar text-center small px-3">
+        <p class="mb-1">Purdue University, 610 Purdue Mall, West Lafayette, IN, 47907, 765-494-4600</p>
+        <p class="mb-1 legal-links">
+            <a href="https://www.purdue.edu/purdue/disclaimer.php">© 2025 Purdue University</a> |
+            <a href="https://www.purdue.edu/purdue/ea_eou_statement.html">An equal access/equal opportunity university</a> |
+            <a href="https://www.purdue.edu/purdue/about/integrity_statement.html">Integrity Statement</a> |
+            <a href="https://www.purdue.edu/home/free-speech/">Free Expression</a> |
+            <a href="https://collegescorecard.ed.gov/school/fields/?243780-Purdue-University-Main-Campus">DOE Degree Scorecards</a> |
+            <a href="https://www.purdue.edu/securepurdue/security-programs/copyright-policies/reporting-alleged-copyright-infringement.php">Copyright Complaints</a> |
+            <a href="https://marcom.purdue.edu/" target="_blank">Brand Toolkit</a> |
+            <a href="https://engineering.purdue.edu/ECN/">Maintained by the Engineering Computer Network</a>
+        </p>
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- Main Footer Columns -->
+    <div class="container pb-3">
+        <div class="row footer-row">
+
+            <!-- LEFT: NAVIGATION -->
+            <div class="col-md-4 footer-col text-start">
+                <strong class="footer-heading">Navigation</strong><br>
+
+                <a href="index.php">Home</a><br>
+
+                                    <a href="scm.php">SCM Dashboard</a><br>
+                
+                                    <a href="erp.php">ERP Dashboard</a><br>
+                            </div>
+
+            <!-- CENTER: COURSE + GROUP -->
+            <div class="col-md-4 footer-center text-center">
+                <div class="footer-title">IE332-001</div>
+                <div class="footer-subtitle">Group 12</div>
+            </div>
+
+            <!-- RIGHT: TEAM -->
+            <div class="col-md-4 footer-col text-end">
+                <strong class="footer-heading">Team Members</strong><br>
+                <a href="mailto:aelsolh@purdue.edu">Adam Elsolh</a><br>
+                <a href="mailto:huan1803@purdue.edu">Derek Huang</a><br>
+                <a href="mailto:fcanale@purdue.edu">Fernando Canales</a><br>
+                <a href="mailto:jishnujag@gmail.com">Jishnu Ghosh</a><br>
+                <a href="mailto:lcavalie@purdue.edu">Leo Cavalier</a><br>
+                <a href="mailto:yang2458@purdue.edu">Zihang Yang</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+        
+    
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
